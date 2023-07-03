@@ -1,0 +1,32 @@
+<!-- {% extends 'base.html' %}
+
+{% block content %}
+
+{{task.title}}
+
+{{error}}
+
+
+
+<form>
+  {% csrf_token %}
+  {% for field in form %}
+
+<div class="field-wrapper">
+  <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+  <input type="{{ field.field.widget.input_type }}" id="{{ field.id_for_label }}" value="{{ field.value }}" disabled>
+</div>
+{% endfor %}
+</form> -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Task Details</h1>
+  <p>Title: {{ task.title }}</p>
+  <p>Description: {{ task.description }}</p>
+  <p>Created: {{ task.created }}</p>
+  <p>Completed: {{ task.datecompleted }}</p>
+  <!-- Otros campos de la tarea que deseas mostrar -->
+
+  <a href="{% url 'completed_tasks' %}">Back to Completed Tasks</a>
+{% endblock %}

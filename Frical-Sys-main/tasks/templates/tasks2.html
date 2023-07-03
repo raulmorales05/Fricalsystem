@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Presupuestos finalizados</h1>
+<div class="table-responsive py-2">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nº</th>
+                <th>Titulo</th>
+                <th>Descripcion</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+          {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{task.title}}</td>
+                <td>{{task.description}}</td>
+                <td>{{task.datecompleted|date:'M j Y'}}</td>
+                <td><a class="btn btn-info print-button" href="{{ task.id }}">Ver</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+    
+
+</div>
+{% endblock %}
